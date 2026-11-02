@@ -97,6 +97,15 @@ main.app-main {
   box-sizing: border-box;
 }
 
+.resource-card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--modus-wc-spacing-sm);
+  width: 100%;
+  min-width: 0;
+}
+
 .resource-link-row {
   padding-top: var(--modus-wc-spacing-md);
 }

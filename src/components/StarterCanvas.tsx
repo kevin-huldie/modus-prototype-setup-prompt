@@ -1,5 +1,6 @@
 import {
   ModusWcAlert,
+  ModusWcBadge,
   ModusWcCard,
   ModusWcIcon,
   ModusWcLink,
@@ -12,18 +13,21 @@ type StarterCanvasProps = {
 
 const EXPLORE_RESOURCES = [
   {
+    badge: 'Components',
     title: 'Component library',
     description:
       'Browse buttons, inputs, dialogs, and other UI building blocks.',
     href: 'https://modus.trimble.com/components',
   },
   {
+    badge: 'Templates',
     title: 'Modus templates',
     description:
       'See common page layouts and patterns you can adapt for your idea.',
     href: 'https://modus.trimble.com/templates',
   },
   {
+    badge: 'Icons',
     title: 'Icon ecosystem',
     description:
       'Find official Trimble icons for labels, actions, and wayfinding.',
@@ -79,13 +83,17 @@ export function StarterCanvas({ productName }: StarterCanvasProps) {
               padding="compact"
               customClass="resource-card"
             >
-              <ModusWcTypography
-                slot="title"
-                hierarchy="h4"
-                size="md"
-                weight="semibold"
-                label={resource.title}
-              />
+              <div slot="title" className="resource-card-title">
+                <ModusWcBadge variant="filled" color="high-contrast" size="sm">
+                  {resource.badge}
+                </ModusWcBadge>
+                <ModusWcTypography
+                  hierarchy="h4"
+                  size="md"
+                  weight="semibold"
+                  label={resource.title}
+                />
+              </div>
               <ModusWcTypography hierarchy="p" size="sm" label={resource.description} />
               <div className="resource-link-row">
                 <ModusWcLink
