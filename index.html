@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modus prototype starter shell for Modus Prototype Setup Prompt Test — verify theme, navbar, and components, then replace the canvas with your product UI."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Modus Prototype Setup Prompt Test</title>
+    <script>
+      (function () {
+        var STORAGE_KEY = 'modus-theme-config';
+        var mode = null;
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (
+              (parsed.mode === 'light' || parsed.mode === 'dark') &&
+              parsed.theme === 'modus-modern'
+            ) {
+              mode = parsed.mode;
+            }
+          }
+        } catch (e) {
+          /* ignore */
+        }
+        if (!mode) {
+          mode = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+        var dataTheme =
+          mode === 'dark' ? 'modus-modern-dark' : 'modus-modern-light';
+        var el = document.documentElement;
+        el.setAttribute('data-theme', dataTheme);
+        el.setAttribute('data-mode', mode);
+        el.classList.remove('light', 'dark');
+        el.classList.add(mode);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

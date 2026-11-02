@@ -1,0 +1,186 @@
+/* Starter shell + canvas rules — safe to remove when replacing StarterCanvas */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open Sans', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+body,
+#root,
+.app-shell,
+main.app-main {
+  background: var(--modus-wc-color-base-page);
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > modus-wc-theme-provider {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100dvh;
+  min-width: 0;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.starter-column {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.starter-canvas {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--modus-wc-spacing-2xl);
+}
+
+.shell-setup-alert {
+  margin-bottom: var(--modus-wc-spacing-2xl);
+}
+
+.starter-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--modus-wc-spacing-md);
+  margin-bottom: var(--modus-wc-spacing-2xl);
+}
+
+.starter-subtitle.low-contrast {
+  margin: 0;
+  color: var(--modus-wc-color-base-content-low-contrast);
+}
+
+.explore-intro {
+  margin: 0 0 var(--modus-wc-spacing-md);
+  color: var(--modus-wc-color-base-content-low-contrast);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--modus-wc-spacing-md);
+}
+
+.resource-grid > modus-wc-card {
+  display: flex;
+}
+
+.resource-card {
+  min-height: 10rem;
+  box-sizing: border-box;
+}
+
+.resource-link-row {
+  padding-top: var(--modus-wc-spacing-md);
+}
+
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--modus-wc-spacing-2xs);
+}
+
+.getting-started-intro {
+  margin: 0 0 var(--modus-wc-spacing-md);
+}
+
+.getting-started-list {
+  margin: var(--modus-wc-spacing-md) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--modus-wc-spacing-sm);
+}
+
+.getting-started-list > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--modus-wc-spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+.getting-started-item modus-wc-icon {
+  color: var(--modus-wc-color-success);
+  flex-shrink: 0;
+}
+
+.starter-footer {
+  margin-top: var(--modus-wc-spacing-2xl);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--modus-wc-spacing-sm);
+}
+
+.starter-footer-link {
+  color: var(--modus-wc-color-base-content-low-contrast);
+}
+
+.starter-footer-link-text {
+  font-size: var(--modus-wc-font-size-sm, 0.875rem);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.canvas-section {
+  margin-bottom: var(--modus-wc-spacing-2xl);
+}
+
+/* AppNavbar starter chrome — remove with StarterCanvas */
+.app-shell div[slot='end'].navbar-theme,
+.app-shell div[slot='end'].navbar-profile {
+  position: relative;
+  display: inline-flex;
+}
+
+.app-shell .navbar-theme {
+  order: 1;
+}
+
+.app-shell .navbar-profile {
+  order: 2;
+}
+
+.navbar-profile-panel {
+  position: absolute;
+  top: calc(100% + var(--modus-wc-spacing-2xs));
+  right: 0;
+  z-index: 200;
+  min-width: 18rem;
+}
+
+.navbar-profile-panel[hidden] {
+  display: none;
+}
