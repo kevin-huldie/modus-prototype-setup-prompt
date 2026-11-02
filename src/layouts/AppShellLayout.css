@@ -1,0 +1,97 @@
+/* AppShellLayout — shared CSS from Modus Blueprint app-shell template */
+
+.app-shell-layout:not([data-mobile='true']) .app-shell-layout-content {
+  margin-left: 4rem;
+  flex: 1 1 0;
+  width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.app-shell-layout[data-side-nav-expanded]:not([data-mobile='true'])
+  .app-shell-layout-content {
+  margin-left: 256px;
+}
+
+@media (min-width: 1024px) {
+  .app-shell.app-shell-layout:not([data-mobile='true']) .app-shell-layout-content {
+    margin-left: 4rem;
+  }
+
+  .app-shell.app-shell-layout[data-side-nav-expanded]:not([data-mobile='true'])
+    .app-shell-layout-content {
+    margin-left: 256px;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-shell .app-shell-layout-content,
+  .app-shell-preview[data-mobile='true'] #app-shell-content {
+    margin-left: 0 !important;
+  }
+}
+
+.app-shell-layout:not([data-nav-transitions='true']) .app-shell-side-rail,
+.app-shell-layout:not([data-nav-transitions='true']) .app-shell-layout-content,
+.app-shell-layout:not([data-nav-transitions='true'])
+  modus-wc-side-navigation
+  .modus-wc-side-navigation {
+  transition: none !important;
+}
+
+.app-shell-layout[data-mobile='true']:not([data-sidebar-open='true'])
+  .app-shell-side-rail {
+  transform: translateX(-100%) !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell-layout .app-shell-side-rail,
+  .app-shell-layout .app-shell-layout-content,
+  .app-shell-layout modus-wc-side-navigation .modus-wc-side-navigation {
+    transition: none !important;
+  }
+}
+
+.app-shell-layout[data-mobile='true'] .app-shell-layout-content,
+.app-shell-preview[data-mobile='true'] #app-shell-content {
+  margin-left: 0 !important;
+}
+
+.app-shell-preview modus-wc-side-navigation {
+  z-index: 0 !important;
+}
+
+modus-wc-side-navigation.side-nav-page-bg,
+modus-wc-side-navigation[class*='side-nav-page-bg'] {
+  background-color: var(--modus-wc-color-base-page) !important;
+}
+
+html[data-mode='dark'] modus-wc-side-navigation.side-nav-page-bg,
+html[data-theme*='dark'] modus-wc-side-navigation.side-nav-page-bg {
+  background-color: var(--modus-wc-color-base-page) !important;
+}
+
+modus-wc-side-navigation:not([expanded]) modus-wc-menu-item .modus-wc-menu-item-labels,
+modus-wc-side-navigation:not([expanded]) modus-wc-menu-item .modus-wc-menu-item-label,
+modus-wc-side-navigation[expanded='false'] modus-wc-menu-item .modus-wc-menu-item-labels,
+modus-wc-side-navigation[expanded='false'] modus-wc-menu-item .modus-wc-menu-item-label {
+  display: none !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.app-shell modus-wc-navbar [slot='center'][hidden] {
+  display: none !important;
+}
+
+.app-shell-navbar-end {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--modus-wc-spacing-xs, 0.25rem);
+}

@@ -1,4 +1,4 @@
-/* Starter shell + canvas rules — safe to remove when replacing StarterCanvas */
+@import 'tailwindcss';
 
 *,
 *::before,
@@ -21,10 +21,25 @@ main.app-main {
   background: var(--modus-wc-color-base-page);
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 #root {
-  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.root-viewport {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
 }
 
 #root > modus-wc-theme-provider {

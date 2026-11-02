@@ -37,9 +37,17 @@ const navbarVisibility = {
 type AppNavbarProps = {
   themeMode: ThemeMode;
   onToggleTheme: () => void;
+  condensed?: boolean;
+  /** Wired to modus-wc-navbar hamburger — toggles blueprint side navigation. */
+  onMainMenuToggle?: () => void;
 };
 
-export function AppNavbar({ themeMode, onToggleTheme }: AppNavbarProps) {
+export function AppNavbar({
+  themeMode,
+  onToggleTheme,
+  condensed = false,
+  onMainMenuToggle,
+}: AppNavbarProps) {
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
@@ -64,9 +72,13 @@ export function AppNavbar({ themeMode, onToggleTheme }: AppNavbarProps) {
 
   return (
     <ModusWcNavbar
-      condensed={false}
+      condensed={condensed}
       mainMenuOpen={false}
       visibility={navbarVisibility}
+      onMainMenuOpenChange={() => {
+        onMainMenuToggle?.();
+      }}
+      customClass="sticky top-0 z-[120] flex-shrink-0"
     >
       <div slot="main-menu" hidden>
         Main menu placeholder
