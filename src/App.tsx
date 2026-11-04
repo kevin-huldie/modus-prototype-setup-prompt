@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { ModusWcThemeProvider } from '@trimble-oss/moduswebcomponents-react';
+import { AppShellPage } from './AppShellPage';
 import { AppNavbar } from './components/AppNavbar';
-import { StarterCanvas } from './components/StarterCanvas';
 import {
   readThemeConfig,
   toggleThemeMode,
   type ModusThemeConfig,
 } from './theme';
-
-const PRODUCT_NAME = 'Modus Prototype Setup Prompt Test';
 
 export default function App() {
   const [themeConfig, setThemeConfig] = useState<ModusThemeConfig>(() =>
@@ -21,16 +19,17 @@ export default function App() {
 
   return (
     <ModusWcThemeProvider initialTheme={readThemeConfig()}>
-      <div className="app-shell">
-        <AppNavbar
-          themeMode={themeConfig.mode}
-          onToggleTheme={handleToggleTheme}
+      <div className="app-shell root-viewport flex min-h-0 flex-1 flex-col overflow-hidden">
+        <AppShellPage
+          renderNavbar={({ mobile, toggleSidebar }) => (
+            <AppNavbar
+              themeMode={themeConfig.mode}
+              onToggleTheme={handleToggleTheme}
+              condensed={mobile}
+              onMainMenuToggle={toggleSidebar}
+            />
+          )}
         />
-        <main className="app-main" id="main-content">
-          <div className="starter-column">
-            <StarterCanvas productName={PRODUCT_NAME} />
-          </div>
-        </main>
       </div>
     </ModusWcThemeProvider>
   );

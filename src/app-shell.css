@@ -1,0 +1,67 @@
+/* App Shell template styles (Modus Blueprint) */
+
+.app-shell-preview-wrapper {
+  container-type: inline-size;
+  container-name: app-shell-preview;
+}
+
+@container app-shell-preview (max-width: 479px) {
+  .app-shell-preview-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+@container app-shell-preview (max-width: 640px) {
+  .app-shell-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.app-shell-preview modus-wc-side-navigation {
+  z-index: 0 !important;
+}
+
+.app-shell-preview[data-mobile='true'] #app-shell-content {
+  margin-left: 0 !important;
+}
+
+.app-shell-preview modus-wc-card:has(.app-shell-list-card),
+.app-shell-preview .app-shell-list-card,
+.app-shell-preview .app-shell-list-card .modus-wc-card-body,
+.app-shell-preview .app-shell-list-card .modus-wc-card-title,
+.app-shell-preview .app-shell-list-card .modus-wc-card-subtitle {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.app-shell-preview .app-shell-list-card .modus-wc-card-body {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.app-shell-preview .app-shell-list-card .modus-wc-card-title,
+.app-shell-preview .app-shell-list-card .modus-wc-card-subtitle {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.app-shell-preview .app-shell-list-card .modus-wc-card-title modus-wc-typography,
+.app-shell-preview .app-shell-list-card .modus-wc-card-subtitle modus-wc-typography {
+  width: 100% !important;
+  min-width: 0 !important;
+  display: block !important;
+  text-align: left !important;
+}
+
+.tabs-scroll-wrapper {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
