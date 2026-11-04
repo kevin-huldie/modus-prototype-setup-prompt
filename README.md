@@ -1,32 +1,27 @@
-# React + TypeScript + Vite
+# Modus Prototype Setup Prompt Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Modus-backed React + TypeScript + Vite starter shell with theme toggle, navbar, and a replaceable **StarterCanvas** guide.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open the URL Vite prints (usually `http://localhost:5173/`).
+
+## GitHub Pages preview
+
+After a successful **Deploy GitHub Pages** workflow on `main`:
+
+**https://kevin-huldie.github.io/modus-prototype-setup-prompt/**
+
+Repository: [kevin-huldie/modus-prototype-setup-prompt](https://github.com/kevin-huldie/modus-prototype-setup-prompt)
+
+## Stack
+
+- [@trimble-oss/moduswebcomponents-react](https://www.npmjs.com/package/@trimble-oss/moduswebcomponents-react) (Modus Web Components)
+- Vite + React 19 + TypeScript
+
+Replace `StarterCanvas` and starter-scoped CSS in `src/styles/globals.css` when you begin product UI.
